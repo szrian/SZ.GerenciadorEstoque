@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZ.GerenciadorEstoque.Site", "src\SZ.GerenciadorEstoque.Site\SZ.GerenciadorEstoque.Site.csproj", "{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Site", "1 - Site", "{F47BAF1A-8339-418B-91A8-5F0B6411F9F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Aplicacao", "2 - Aplicacao", "{9EBC1085-22E8-4EC6-A0B6-5DE3C2AB08D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{7AB493B7-0AD8-4FC8-B4DB-76C196EE42F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{2001E989-EEEF-4D21-A32E-973B471C5EEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Dados", "4.1 - Dados", "{8B984798-C288-4D70-B59E-70ABAC248BE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{B28DCC9B-8AA0-48E5-82C5-63C390A78A20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZ.GerenciadorEstoque.Aplicacao", "src\SZ.GerenciadorEstoque.Aplicacao\SZ.GerenciadorEstoque.Aplicacao.csproj", "{9179AF22-A3BF-4400-83AF-8ADFD2730DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZ.GerenciadorEstoque.Dominio", "src\SZ.GerenciadorEstoque.Dominio\SZ.GerenciadorEstoque.Dominio.csproj", "{F25D915B-8C13-404F-8FDD-FFD28180C72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZ.GerenciadorEstoque.Infra.Dados", "src\SZ.GerenciadorEstoque.Infra.Dados\SZ.GerenciadorEstoque.Infra.Dados.csproj", "{D47D429D-7F62-4252-B5FF-8E63EF203D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SZ.GerenciadorEstoque.Infra.CrossCutting", "src\SZ.GerenciadorEstoque.Infra.CrossCutting\SZ.GerenciadorEstoque.Infra.CrossCutting.csproj", "{3CAC942A-A554-4A7D-A411-A83B9D1BEF29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9179AF22-A3BF-4400-83AF-8ADFD2730DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9179AF22-A3BF-4400-83AF-8ADFD2730DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9179AF22-A3BF-4400-83AF-8ADFD2730DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9179AF22-A3BF-4400-83AF-8ADFD2730DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25D915B-8C13-404F-8FDD-FFD28180C72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25D915B-8C13-404F-8FDD-FFD28180C72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25D915B-8C13-404F-8FDD-FFD28180C72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25D915B-8C13-404F-8FDD-FFD28180C72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D47D429D-7F62-4252-B5FF-8E63EF203D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47D429D-7F62-4252-B5FF-8E63EF203D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47D429D-7F62-4252-B5FF-8E63EF203D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47D429D-7F62-4252-B5FF-8E63EF203D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAC942A-A554-4A7D-A411-A83B9D1BEF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAC942A-A554-4A7D-A411-A83B9D1BEF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAC942A-A554-4A7D-A411-A83B9D1BEF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAC942A-A554-4A7D-A411-A83B9D1BEF29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6E39BA2C-FEC1-4EA2-ABA4-80D1A1B89F84} = {F47BAF1A-8339-418B-91A8-5F0B6411F9F5}
+		{8B984798-C288-4D70-B59E-70ABAC248BE3} = {2001E989-EEEF-4D21-A32E-973B471C5EEF}
+		{B28DCC9B-8AA0-48E5-82C5-63C390A78A20} = {2001E989-EEEF-4D21-A32E-973B471C5EEF}
+		{9179AF22-A3BF-4400-83AF-8ADFD2730DDD} = {9EBC1085-22E8-4EC6-A0B6-5DE3C2AB08D0}
+		{F25D915B-8C13-404F-8FDD-FFD28180C72D} = {7AB493B7-0AD8-4FC8-B4DB-76C196EE42F0}
+		{D47D429D-7F62-4252-B5FF-8E63EF203D86} = {8B984798-C288-4D70-B59E-70ABAC248BE3}
+		{3CAC942A-A554-4A7D-A411-A83B9D1BEF29} = {B28DCC9B-8AA0-48E5-82C5-63C390A78A20}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB9C12C0-1333-4E04-9BAF-AAF40133E8F3}
+	EndGlobalSection
+EndGlobal
