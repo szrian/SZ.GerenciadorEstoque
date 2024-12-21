@@ -1,7 +1,12 @@
+using SZ.GerenciadorEstoque.Site.Configuracao;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
+builder.Services.ResolverDependencias(builder.Configuration);
 
 var app = builder.Build();
 
