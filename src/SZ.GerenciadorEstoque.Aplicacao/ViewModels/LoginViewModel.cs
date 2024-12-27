@@ -12,5 +12,5 @@ public class LoginViewModel
 	[DataType(DataType.Password)]
 	[Display(Name = "Senha")]
 	public string Senha { get; set; }
-	public string UrlRetorno { get; set; }
+	public string? UrlRetorno { get; set; }
 }

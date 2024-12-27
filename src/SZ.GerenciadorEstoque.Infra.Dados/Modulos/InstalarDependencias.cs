@@ -13,8 +13,9 @@ public static class InstalarDependencias
 		servicos.AddDbContext<AppDbContext>(options =>
 		options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-		servicos.AddIdentityCore<IdentityUser>()
-			.AddEntityFrameworkStores<AppDbContext>();
+		servicos.AddDefaultIdentity<IdentityUser>()
+			.AddEntityFrameworkStores<AppDbContext>()
+			.AddDefaultTokenProviders();
 
 		return servicos;
 	}

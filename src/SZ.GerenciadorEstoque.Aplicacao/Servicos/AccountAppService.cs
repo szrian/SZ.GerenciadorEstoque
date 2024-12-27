@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using SZ.GerenciadorEstoque.Aplicacao.Interfaces;
 using SZ.GerenciadorEstoque.Aplicacao.ViewModels;
 
@@ -9,6 +8,12 @@ public class AccountAppService : IAccountAppService
 {
 	private readonly UserManager<IdentityUser> _userManager;
 	private readonly SignInManager<IdentityUser> _signInManager;
+
+	public AccountAppService(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+	{
+		_userManager = userManager;
+		_signInManager = signInManager;
+	}
 
 	public async Task<string> EfetuarLogin(LoginViewModel loginVM)
 	{

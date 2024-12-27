@@ -1,0 +1,30 @@
+﻿@model SZ.GerenciadorEstoque.Aplicacao.ViewModels.LoginViewModel
+
+<section class="vh-100" style="background-color: white;">
+    <div class="container py-5 h-80">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <h3 class="mb-5">Log In</h3>
+                        <form asp-controller="Account" asp-action="Login" method="post" class="form-horizontal" role="form">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <input type="hidden" asp-for="UrlRetorno" />
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input asp-for="UserEmail" type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="E-mail"/>
+                            </div>
+
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input asp-for="Senha" type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Senha"/>
+                            </div>
+
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
