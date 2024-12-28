@@ -167,10 +167,12 @@ namespace SZ.GerenciadorEstoque.Infra.Dados.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -207,10 +209,12 @@ namespace SZ.GerenciadorEstoque.Infra.Dados.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -218,6 +222,77 @@ namespace SZ.GerenciadorEstoque.Infra.Dados.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("SZ.GerenciadorEstoque.Dominio.Models.ImagemProduto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("CaminhoArquivo")
+                        .HasColumnType("varchar(2000)")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("bit")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("NomeImagem")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnOrder(2);
+
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ImagensProdutos", (string)null);
+                });
+
+            modelBuilder.Entity("SZ.GerenciadorEstoque.Dominio.Models.Produto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)")
+                        .HasColumnOrder(3);
+
+                    b.Property<bool>("Excluido")
+                        .HasColumnType("bit")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal>("PrecoCusto")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnOrder(4);
+
+                    b.Property<decimal?>("PrecoVenda")
+                        .HasColumnType("decimal(10,2)")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int")
+                        .HasColumnOrder(6);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Produtos", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -263,6 +338,21 @@ namespace SZ.GerenciadorEstoque.Infra.Dados.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SZ.GerenciadorEstoque.Dominio.Models.ImagemProduto", b =>
+                {
+                    b.HasOne("SZ.GerenciadorEstoque.Dominio.Models.Produto", "Produto")
+                        .WithMany("ImagensProduto")
+                        .HasForeignKey("ProdutoId")
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("SZ.GerenciadorEstoque.Dominio.Models.Produto", b =>
+                {
+                    b.Navigation("ImagensProduto");
                 });
 #pragma warning restore 612, 618
         }

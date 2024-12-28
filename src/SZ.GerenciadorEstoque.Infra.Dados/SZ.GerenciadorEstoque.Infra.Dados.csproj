@@ -22,7 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EntidadesConfig\" />
+    <ProjectReference Include="..\SZ.GerenciadorEstoque.Dominio\SZ.GerenciadorEstoque.Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
