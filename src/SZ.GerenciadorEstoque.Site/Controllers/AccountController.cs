@@ -33,7 +33,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 				return View(loginVM);
 			}
 
-			if (string.IsNullOrEmpty(loginVM.UrlRetorno)) return RedirectToAction("Index", "Home");
+			if (string.IsNullOrEmpty(loginVM.UrlRetorno)) return RedirectToAction("Index", "Produto");
 
 			return Redirect(loginVM.UrlRetorno);
 		}
