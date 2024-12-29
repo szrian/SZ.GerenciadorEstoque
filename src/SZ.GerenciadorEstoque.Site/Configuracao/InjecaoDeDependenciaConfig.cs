@@ -8,6 +8,7 @@ public static class InjecaoDeDependenciaConfig
 	public static IServiceCollection ResolverDependencias(this IServiceCollection servicos, IConfiguration configuracao)
 	{
 		servicos.AdicionarBancoDeDados(configuracao);
+		servicos.RegistrarRepositorios();
 		servicos.RegistrarServicosAppService();
 
 		return servicos;
