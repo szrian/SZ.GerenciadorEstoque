@@ -25,6 +25,7 @@ public class Produto
     public string Descricao { get; private set; }
     public decimal PrecoCusto { get; private set; }
     public decimal? PrecoVenda { get; private set; }
+    public DateTime? DataVenda { get; private set; }
     public Status Status { get; private set; }
     public bool Excluido { get; private set; }
 

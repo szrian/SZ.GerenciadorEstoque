@@ -41,6 +41,9 @@ public class ProdutoConfig : IEntityTypeConfiguration<Produto>
             .IsRequired()
             .HasColumnOrder(7);
 
+        builder.Property(P => P.DataVenda)
+            .HasColumnOrder(8);
+
         builder.ToTable(NomeTabela);
     }
 }
