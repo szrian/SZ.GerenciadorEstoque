@@ -4,20 +4,36 @@ namespace SZ.GerenciadorEstoque.Dominio.Models;
 
 public class Produto
 {
-    public Produto(Guid id, 
-        string nome, 
+    public Produto(string nome,
         string descricao, 
-        decimal precoCusto, 
-        decimal? precoVenda, 
+        decimal precoCusto,
         Status status)
+    {
+        Id = Guid.NewGuid();
+        Nome = nome;
+        Descricao = descricao;
+        PrecoCusto = precoCusto;
+        Status = status;
+        Excluido = false;
+    }
+
+    public Produto(Guid id,
+        string nome,
+        string descricao,
+        decimal precoCusto,
+        decimal? precoVenda,
+        DateTime? dataVenda,
+        Status status,
+        bool excluido)
     {
         Id = id;
         Nome = nome;
         Descricao = descricao;
         PrecoCusto = precoCusto;
         PrecoVenda = precoVenda;
+        DataVenda = dataVenda;
         Status = status;
-        Excluido = false;
+        Excluido = excluido;
     }
 
     public Guid Id { get; private set; }
