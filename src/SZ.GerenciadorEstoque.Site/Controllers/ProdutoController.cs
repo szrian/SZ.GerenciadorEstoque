@@ -28,12 +28,12 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
             if (produtoViewModel == null) NotFound();
 
-            return View(produtoViewModel);
+            return View("Details", produtoViewModel);
         }
 
         public IActionResult Adicionar()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
@@ -41,7 +41,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
         public async Task<IActionResult> Adicionar(ProdutoViewModel produtoViewModel)
         {
             //Implementar método
-            return Ok();
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<IActionResult> Atualizar(Guid? id)
@@ -52,7 +52,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
             if (produto == null)NotFound();
 
-            return View(produto);
+            return View("Edit", produto);
         }
 
         [HttpPost]
@@ -77,7 +77,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
             if (produtoViewModel == null) NotFound();
 
-            return View(produtoViewModel);
+            return View("Delete", produtoViewModel);
         }
 
         [HttpPost, ActionName("Excluir")]
