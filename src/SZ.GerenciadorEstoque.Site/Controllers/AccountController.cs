@@ -45,7 +45,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 			HttpContext.User = null;
 			await _accountAppService.Logout();
 
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Login", "Account");
 		}
 	}
 }

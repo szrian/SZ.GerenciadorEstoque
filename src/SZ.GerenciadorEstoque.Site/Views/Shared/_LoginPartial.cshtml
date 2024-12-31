@@ -4,7 +4,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
 	<div class="dropdown">
-		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<i class="fa-solid fa-circle-user"></i> @User.Identity.Name &nbsp;
 		</button>
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
