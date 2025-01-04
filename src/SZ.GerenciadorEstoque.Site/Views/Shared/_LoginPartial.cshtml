@@ -3,14 +3,14 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-	<div class="dropdown">
-		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	<div class="dropdown" style="padding-right: 50px">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
 			<i class="fa-solid fa-circle-user"></i> @User.Identity.Name &nbsp;
 		</button>
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 			<a class="dropdown-item">
 				<form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post" class="navbar-left">
-					<button type="submit" style="width:auto" class="dropdown-item-text">
+					<button type="submit" style="width:inherit" class="dropdown-item-text">
 						Sair
 					</button>
 				</form>

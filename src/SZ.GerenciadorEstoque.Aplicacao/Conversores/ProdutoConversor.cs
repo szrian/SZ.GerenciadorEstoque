@@ -8,6 +8,7 @@ public interface IProdutoConversor
     Produto ConverterParaEntidadeAdicionar(ProdutoViewModel produtoViewModel);
     Produto ConverterParaEntidadeAtualizar(ProdutoViewModel produtoViewModel);
     ProdutoViewModel ConverterParaViewModel(Produto produto);
+    IEnumerable<ProdutoViewModel> ConverterParaViewModel(IEnumerable<Produto> produtos);
 }
 public class ProdutoConversor : IProdutoConversor
 {
@@ -40,5 +41,15 @@ public class ProdutoConversor : IProdutoConversor
             Status = produto.Status,
             Excluido = produto.Excluido
         };
+    }
+
+    public IEnumerable<ProdutoViewModel> ConverterParaViewModel(IEnumerable<Produto> produtos)
+    {
+        var produtosViewModel = new List<ProdutoViewModel>();
+
+        foreach (var produto in produtos)
+            produtosViewModel.Add(ConverterParaViewModel(produto));
+
+        return produtosViewModel;
     }
 }

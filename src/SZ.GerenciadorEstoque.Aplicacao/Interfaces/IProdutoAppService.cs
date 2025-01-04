@@ -8,4 +8,5 @@ public interface IProdutoAppService
     ProdutoViewModel Atualizar(ProdutoViewModel produtoViewModel);
     Task Remover(Guid id);
     Task<ProdutoViewModel> ObterPorIdAsync(Guid id);
+    Task<IEnumerable<ProdutoViewModel>> ObterTodosAsync();
 }

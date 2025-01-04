@@ -17,7 +17,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var produtosViewModel = new List<ProdutoViewModel>();
+            var produtosViewModel = await _produtoAppService.ObterTodosAsync();
 
             return View(produtosViewModel);
         }
@@ -50,7 +50,10 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Adicionar(ProdutoViewModel produtoViewModel)
         {
-            //Implementar método
+            var produtoAdicionado = await _produtoAppService.Adicionar(produtoViewModel);
+
+            //Validar item adicionado
+
             return RedirectToAction(nameof(Index));
         }
 

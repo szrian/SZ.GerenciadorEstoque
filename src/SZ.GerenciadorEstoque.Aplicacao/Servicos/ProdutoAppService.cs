@@ -1,4 +1,5 @@
-﻿using SZ.GerenciadorEstoque.Aplicacao.Conversores;
+﻿using System.Reflection.Metadata.Ecma335;
+using SZ.GerenciadorEstoque.Aplicacao.Conversores;
 using SZ.GerenciadorEstoque.Aplicacao.Interfaces;
 using SZ.GerenciadorEstoque.Aplicacao.ViewModels;
 using SZ.GerenciadorEstoque.Dominio.Interfaces.Repositorios;
@@ -43,6 +44,13 @@ public class ProdutoAppService : IProdutoAppService
         var produto = await _produtoRepositorio.ObterPorIdAsync(id);
 
         return _produtoConversor.ConverterParaViewModel(produto);
+    }
+
+    public async Task<IEnumerable<ProdutoViewModel>> ObterTodosAsync()
+    {
+        var produtos = await _produtoRepositorio.ObterTodosAsync();
+
+        return _produtoConversor.ConverterParaViewModel(produtos);
     }
 
     public async Task Remover(Guid id) =>
