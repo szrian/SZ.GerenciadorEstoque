@@ -35,14 +35,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
         public IActionResult Adicionar()
         {
-            ViewBag.Status = new SelectList(Enum.GetValues(typeof(Status)).Cast<Status>()
-            .Select(status => new SelectListItem
-            {
-                Value = ((int)status).ToString(),
-                Text = Enum.GetName(status) 
-            }),
-            "Value", "Text");
-
+            CarregarSelectListStatus();
             return View("Create");
         }
 
@@ -65,6 +58,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
             if (produto == null)NotFound();
 
+            CarregarSelectListStatus();
             return View("Edit", produto);
         }
 
@@ -100,6 +94,17 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
             await _produtoAppService.Remover(id);
 
             return RedirectToAction(nameof(Index));
+        }
+
+        private void CarregarSelectListStatus()
+        {
+            ViewBag.Status = new SelectList(Enum.GetValues(typeof(Status)).Cast<Status>()
+            .Select(status => new SelectListItem
+            {
+                Value = ((int)status).ToString(),
+                Text = Enum.GetName(status)
+            }),
+            "Value", "Text");
         }
     }
 }
