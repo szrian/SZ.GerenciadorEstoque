@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel;
 using SZ.GerenciadorEstoque.Dominio.Enums;
 
 namespace SZ.GerenciadorEstoque.Aplicacao.ViewModels;
@@ -20,5 +21,6 @@ public class ProdutoViewModel
     [DisplayName("Vendido em")]
     public DateTime? DataVenda { get; set; }
     public Status Status { get; set; }
+    public IFormFile Imagem { get; set; }
     public bool Excluido { get; set; }
 }
