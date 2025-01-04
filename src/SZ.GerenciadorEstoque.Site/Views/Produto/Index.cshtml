@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-action="Atualizar" asp-route-id="@item.Id">Atualizar</a> |
-                <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
+                <a class="btn btn-primary" asp-action="Atualizar" asp-route-id="@item.Id">Atualizar</a> |
+                <a class="btn btn-warning" asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+                <a class="btn btn-danger" asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
             </td>
         </tr>
 }
