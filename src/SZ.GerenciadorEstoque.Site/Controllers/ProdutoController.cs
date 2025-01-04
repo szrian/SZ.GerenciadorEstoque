@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SZ.GerenciadorEstoque.Aplicacao.Interfaces;
 using SZ.GerenciadorEstoque.Aplicacao.ViewModels;
+using SZ.GerenciadorEstoque.Dominio.Enums;
 
 namespace SZ.GerenciadorEstoque.Site.Controllers
 {
@@ -33,6 +35,14 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
 
         public IActionResult Adicionar()
         {
+            ViewBag.Status = new SelectList(Enum.GetValues(typeof(Status)).Cast<Status>()
+            .Select(status => new SelectListItem
+            {
+                Value = ((int)status).ToString(),
+                Text = Enum.GetName(status) 
+            }),
+            "Value", "Text");
+
             return View("Create");
         }
 
