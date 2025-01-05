@@ -30,6 +30,7 @@ public class ProdutoConversor : IProdutoConversor
 
     public ProdutoViewModel ConverterParaViewModel(Produto produto)
     {
+        var imagemProduto = produto.ImagensProduto.FirstOrDefault();
         return new ProdutoViewModel
         {
             Id = produto.Id,
@@ -39,7 +40,14 @@ public class ProdutoConversor : IProdutoConversor
             PrecoVenda = produto.PrecoVenda,
             DataVenda = produto.DataVenda,
             Status = produto.Status,
-            Excluido = produto.Excluido
+            Excluido = produto.Excluido,
+            ImagemProduto = new ImagemProdutoViewModel()
+            {
+                Id = imagemProduto.Id,
+                NomeImagem = imagemProduto.NomeImagem,
+                CaminhoArquivo = imagemProduto.CaminhoArquivo,
+                ProdutoId = imagemProduto.ProdutoId,
+            }
         };
     }
 

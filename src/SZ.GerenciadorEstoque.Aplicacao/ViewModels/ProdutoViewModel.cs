@@ -23,4 +23,6 @@ public class ProdutoViewModel
     public Status Status { get; set; }
     public IFormFile Imagem { get; set; }
     public bool Excluido { get; set; }
+
+    public ImagemProdutoViewModel ImagemProduto { get; set; }
 }

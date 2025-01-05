@@ -16,5 +16,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
 		optionsBuilder.EnableSensitiveDataLogging();
+		optionsBuilder.UseLazyLoadingProxies();
 	}
 }

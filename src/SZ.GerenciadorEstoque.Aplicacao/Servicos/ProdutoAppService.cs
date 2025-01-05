@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using SZ.GerenciadorEstoque.Aplicacao.Conversores;
+﻿using SZ.GerenciadorEstoque.Aplicacao.Conversores;
 using SZ.GerenciadorEstoque.Aplicacao.Interfaces;
 using SZ.GerenciadorEstoque.Aplicacao.ViewModels;
 using SZ.GerenciadorEstoque.Dominio.Interfaces.Repositorios;
@@ -13,20 +12,27 @@ public class ProdutoAppService : IProdutoAppService
     private readonly IProdutoServico _produtoServico;
     private readonly IRepositorioBase<Produto> _produtoRepositorio;
     private readonly IProdutoConversor _produtoConversor;
+    private readonly IImagemProdutoAppService _imagemProdutoAppService;
 
     public ProdutoAppService(IProdutoServico produtoServico,
         IRepositorioBase<Produto> produtoRepositorio,
-        IProdutoConversor produtoConversor)
+        IProdutoConversor produtoConversor,
+        IImagemProdutoAppService imagemProdutoAppService)
     {
         _produtoServico = produtoServico;
         _produtoRepositorio = produtoRepositorio;
         _produtoConversor = produtoConversor;
+        _imagemProdutoAppService = imagemProdutoAppService;
     }
 
     public async Task<ProdutoViewModel> Adicionar(ProdutoViewModel produtoViewModel)
     {
         var produto = _produtoConversor.ConverterParaEntidadeAdicionar(produtoViewModel);
         var produtoAdicionado = await _produtoServico.Adicionar(produto);
+
+        //Valida se produto foi adicionado e existe imagem para adicionar
+        if (produtoViewModel.Imagem.Length > 0)
+            await _imagemProdutoAppService.Adicionar(produtoViewModel.Imagem, produtoAdicionado.Id);
 
         return _produtoConversor.ConverterParaViewModel(produtoAdicionado);
     }

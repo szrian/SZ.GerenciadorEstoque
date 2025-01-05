@@ -11,6 +11,7 @@ public static class InjecaoDeDependenciaConfig
 		servicos.AdicionarBancoDeDados(configuracao);
 		servicos.RegistrarRepositorios();
 		servicos.RegistrarServicosAppService();
+		servicos.AdicionarConfiguracaoImagem(configuracao);
 		servicos.RegistrarServicosDeDominio();
 
 		return servicos;
