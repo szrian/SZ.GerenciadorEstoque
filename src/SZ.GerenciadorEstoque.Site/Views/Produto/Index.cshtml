@@ -13,6 +13,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
@@ -37,6 +38,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td style="width: 150px; text-align: center;">
+                <img src="@item.ImagemProduto.CaminhoArquivo" alt="@item.ImagemProduto.NomeImagem" class="img-fluid" style="object-fit: cover; width: 80%; height: 110px;">
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>

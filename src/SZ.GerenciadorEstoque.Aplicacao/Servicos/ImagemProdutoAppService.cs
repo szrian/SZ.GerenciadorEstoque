@@ -39,7 +39,10 @@ public class ImagemProdutoAppService : IImagemProdutoAppService
 
     private string SalvarImagem(IFormFile imagem, Guid produtoId)
     {
-        var diretorio = Path.Combine(_imagemConfiguracao.DiretorioImagens, produtoId.ToString());
+        var diretorio = Path.Combine(Directory.GetCurrentDirectory(),
+            _imagemConfiguracao.DiretorioImagens,
+            "produtos",
+            produtoId.ToString());
 
         if (!Directory.Exists(diretorio))
             Directory.CreateDirectory(diretorio);
@@ -51,6 +54,10 @@ public class ImagemProdutoAppService : IImagemProdutoAppService
             imagem.CopyTo(stream);
         }
 
-        return diretorioImagem;
+        return string.Format(@"\{0}\{1}\{2}\{3}",
+            "images",
+            "produtos",
+            produtoId,
+            imagem.FileName);
     }
 }
