@@ -33,6 +33,14 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
             return View("Details", produtoViewModel);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> RelatorioVendas(DateTime mes)
+        {
+            var relatorioVendasViewModel = await _produtoAppService.ObterVendasPorMes(mes);
+
+            return View(relatorioVendasViewModel);
+        }
+
         public IActionResult Adicionar()
         {
             CarregarSelectListStatus();

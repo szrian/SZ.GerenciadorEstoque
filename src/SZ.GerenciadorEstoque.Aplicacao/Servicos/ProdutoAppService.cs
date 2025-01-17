@@ -1,6 +1,7 @@
 ﻿using SZ.GerenciadorEstoque.Aplicacao.Conversores;
 using SZ.GerenciadorEstoque.Aplicacao.Interfaces;
 using SZ.GerenciadorEstoque.Aplicacao.ViewModels;
+using SZ.GerenciadorEstoque.Dominio.Enums;
 using SZ.GerenciadorEstoque.Dominio.Interfaces.Repositorios;
 using SZ.GerenciadorEstoque.Dominio.Interfaces.Servicos;
 using SZ.GerenciadorEstoque.Dominio.Models;
@@ -57,6 +58,30 @@ public class ProdutoAppService : IProdutoAppService
         var produtos = await _produtoRepositorio.ObterTodosAsync();
 
         return _produtoConversor.ConverterParaViewModel(produtos);
+    }
+
+    public async Task<RelatorioVendasViewModel> ObterVendasPorMes(DateTime mes)
+    {
+        decimal totalGasto = 0;
+        decimal totalGanho = 0;
+
+        var produtosVendidos = _produtoConversor.ConverterParaViewModel(await _produtoRepositorio
+            .BuscarAsync(p => p.Status == Status.VENDIDO
+                        && p.DataVenda.Value.Month == mes.Month));
+
+        foreach (var produto in produtosVendidos)
+        {
+            totalGasto += produto.PrecoCusto;
+            totalGanho += produto.PrecoVenda.Value;
+        }
+
+        return new RelatorioVendasViewModel()
+        {
+            Produtos = produtosVendidos.ToList(),
+            TotalGasto = totalGasto,
+            TotalGanho = totalGanho,
+            Lucro = totalGanho - totalGasto
+        };
     }
 
     public async Task Remover(Guid id) =>

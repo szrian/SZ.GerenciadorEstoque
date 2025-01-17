@@ -9,4 +9,5 @@ public interface IProdutoAppService
     Task Remover(Guid id);
     Task<ProdutoViewModel> ObterPorIdAsync(Guid id);
     Task<IEnumerable<ProdutoViewModel>> ObterTodosAsync();
+    Task<RelatorioVendasViewModel> ObterVendasPorMes(DateTime mes);
 }
