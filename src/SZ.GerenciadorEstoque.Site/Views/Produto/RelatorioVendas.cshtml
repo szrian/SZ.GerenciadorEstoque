@@ -1,0 +1,92 @@
+﻿@using SZ.GerenciadorEstoque.Aplicacao.ViewModels
+@model RelatorioVendasViewModel
+
+@{
+    ViewData["Title"] = "Relatório de Vendas";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card text-center" style="width: 15rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Gastos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Total de gastos</h6>
+                    <span style="color: red">@Model.TotalGasto.ToString("c")</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="width: 15rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ganhos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Total de ganhos</h6>
+                    <span style="color: green">@Model.TotalGanho.ToString("c")</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="width: 15rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Lucro</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lucro do mês</h6>
+                    <span style="color: green">@Model.Lucro.ToString("c")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table" style="margin: 20px">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayName("Nome")
+            </th>
+            <th>
+                @Html.DisplayName("Descricao")
+            </th>
+            <th>
+                @Html.DisplayName("Custo")
+            </th>
+            <th>
+                @Html.DisplayName("Valor de venda")
+            </th>
+            <th>
+                @Html.DisplayName("Data da venda")
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Produtos)
+        {
+            <tr>
+                <td style="width: 150px; text-align: center;">
+                    <img src="@item.ImagemProduto.CaminhoArquivo" alt="@item.ImagemProduto.NomeImagem" class="img-fluid" style="object-fit: cover; width: 80%; height: 110px;">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.Raw(item.PrecoCusto.ToString("c"))
+                </td>
+                <td>
+                    @Html.Raw(item.PrecoVenda.Value.ToString("c"))
+                </td>
+                <td>
+                    @Html.Raw(item.DataVenda.Value.ToString("dd/MM/yyyy"))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

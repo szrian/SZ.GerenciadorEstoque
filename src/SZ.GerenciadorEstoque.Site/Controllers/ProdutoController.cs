@@ -34,7 +34,7 @@ namespace SZ.GerenciadorEstoque.Site.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> RelatorioVendas(DateTime mes)
+        public async Task<IActionResult> RelatorioVendas(DateTime? mes)
         {
             var relatorioVendasViewModel = await _produtoAppService.ObterVendasPorMes(mes);
 

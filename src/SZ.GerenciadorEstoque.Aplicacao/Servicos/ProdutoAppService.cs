@@ -60,14 +60,15 @@ public class ProdutoAppService : IProdutoAppService
         return _produtoConversor.ConverterParaViewModel(produtos);
     }
 
-    public async Task<RelatorioVendasViewModel> ObterVendasPorMes(DateTime mes)
+    public async Task<RelatorioVendasViewModel> ObterVendasPorMes(DateTime? mes)
     {
         decimal totalGasto = 0;
         decimal totalGanho = 0;
+        mes = mes == null ? DateTime.Now : mes;
 
         var produtosVendidos = _produtoConversor.ConverterParaViewModel(await _produtoRepositorio
             .BuscarAsync(p => p.Status == Status.VENDIDO
-                        && p.DataVenda.Value.Month == mes.Month));
+                        && p.DataVenda.Value.Month == mes.Value.Month));
 
         foreach (var produto in produtosVendidos)
         {

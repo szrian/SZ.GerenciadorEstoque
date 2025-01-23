@@ -24,4 +24,11 @@
     <ProjectReference Include="..\SZ.GerenciadorEstoque.Infra.Dados\SZ.GerenciadorEstoque.Infra.Dados.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Produto\RelatorioVendas.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
